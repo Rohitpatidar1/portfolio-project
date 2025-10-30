@@ -1,0 +1,13 @@
+# Dono folders se node_modules ko ignore karein
+portfolio/node_modules
+backend/node_modules
+
+# Dono folders se .env files ko ignore karein (Sensitive Data!)
+portfolio/.env
+backend/.env
+
+# Vite build folder
+portfolio/dist
+
+# Mac files
+.DS_Store

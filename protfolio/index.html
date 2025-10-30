@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio</title>
+
+    <!-- ✅ Tailwind CDN load before custom config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- ✅ Tailwind custom config (placed before React) -->
+    <script>
+      tailwind.config = {
+        darkMode: "class", // Important!
+        theme: {
+          extend: {
+            colors: {
+              accent: "#915EFF",
+            },
+          },
+        },
+      };
+    </script>
+
+    <!-- ✅ Restore saved theme on page load -->
+    <script>
+      (() => {
+        const theme = localStorage.getItem("theme");
+        if (theme === "dark") {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
+    <style>
+      /* --- Light Mode Button Styles --- */
+      .btn-primary {
+        background-color: #3b82f6;
+        color: white;
+        font-weight: bold;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        transition: background-color 0.3s;
+      }
+      .btn-primary:hover {
+        background-color: #2563eb;
+      }
+
+      .btn-secondary {
+        background-color: #e5e7eb;
+        color: #1f2937;
+        font-weight: bold;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.5rem;
+        transition: all 0.3s;
+      }
+      .btn-secondary:hover {
+        background-color: #d1d5db;
+      }
+
+      /* --- Dark Mode --- */
+      .dark .btn-primary {
+        background-color: #60a5fa;
+      }
+      .dark .btn-primary:hover {
+        background-color: #3b82f6;
+      }
+
+      .dark .btn-secondary {
+        background-color: #374151;
+        color: #f3f4f6;
+      }
+      .dark .btn-secondary:hover {
+        background-color: #4b5563;
+      }
+
+      /* Card background */
+      .card-bg {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1),
+          0 2px 4px -2px rgb(0 0 0 / 0.1);
+      }
+      .dark .card-bg {
+        background-color: #1f2937;
+      }
+    </style>
+  </head>
+
+  <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-200">
+    <div id="root"></div>
+
+    <!-- ✅ React app -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
